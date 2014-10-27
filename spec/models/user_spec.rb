@@ -80,6 +80,7 @@ describe User do
     end
 
     describe "password" do
+
       context "not present" do
         before do
           @user = User.new(name: "Example", email: "example@user.com",
@@ -118,5 +119,39 @@ describe User do
         end
       end
     end
+
+    describe "remember token" do
+      before do
+        User.destroy_all
+        @user.save
+      end
+      
+      it "has a default value" do
+        expect(@user.remember_token).to_not be_blank
+      end
+    end  
   end
+
+  describe "associations" do 
+    before do
+      User.destroy_all
+      @user.save
+      FactoryGirl.create(:user, user_id: @user.id)
+    end
+
+    describe "playlist" do
+
+      context "on user destroy" do
+        it "destroys all associated playlists" do
+          playlists = @user.playlists.to_a
+          @user.destroy
+          expect(playlists).not_to be_empty
+          playlists.each do |playlist|
+            expect(Playlist.where(id: playlist.id)).to be_empty
+          end
+        end
+      end
+    end
+  end
+
 end
