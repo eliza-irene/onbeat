@@ -49,6 +49,6 @@ Below are **mockups** for on.BEAT (created using [basalmiq](http://balsamiq.com/
 
 Below is the **ERD** for on.BEAT <br />
 
-![Imgur](http://i.imgur.com/wKgWBG9.png?1)
+![Imgur](http://i.imgur.com/w2gCDYY.png?1)
 
 
