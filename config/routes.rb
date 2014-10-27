@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
-match '/signin', to: 'sessions#new', via: 'get'
+root  'static_pages#home'
+match '/signup',  to: 'users#new',            via: 'get'
 
-resources :sessions, only: [:create, :destroy]
+
+# match '/signin', to: 'sessions#new', via: 'get'
+
+resources :users
+# resources :sessions, only: [:create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
