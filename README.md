@@ -1,7 +1,5 @@
 #General Assembly | WDI: Project 1
 
-<br />
-
 ##Overview
 ---
 **on.BEAT** is a web application that allows users to create workout playlists based on song tempo, or "beats per minute" (BPM).  This app gives users the option to search for music based on BPM, genre, and mood by utilizing the EchoNest API.  Users can then choose songs from their search results to compile as many playlists as they'd like.  For most funtionality, the user must be signed in to the on.BEAT application.
@@ -10,7 +8,7 @@ on.BEAT is being developed for a project for the September 2014 Web Development 
 <br />
 ##Links
 ---
-* Try on.BEAT for yourself and revolutionize your workout music experience!  You can find it on [Heroku](https://onbeat.herokuapp.com/)
+* Try on.BEAT for yourself and revolutionize your workout music experience!  You can find it here on [Heroku](https://onbeat.herokuapp.com/)
 * on.BEAT [Trello](https://trello.com/b/rynlNxeb/wdi-project-1) Board
 * on.BEAT [GitHub](https://github.com/eliza-irene/onbeat) page
 
