@@ -29,6 +29,7 @@ on.BEAT is being developed for a project for the September 2014 Web Development 
 * As a user, I want to create new playlists.
 * As a user, I want to be able to scroll through covers of my playlists to see each named list I have.
 * As a user, I want to be able to view the songs in each playlist I have.
+* As a user, I want to be able to edit the order of the songs in my playlist by dragging them.
 * As a user, I want to be able to delete individual songs from a playlist.
 * As a user, I want to be able to delete an entire playlist.
 * As a user, I want to perform a search for new songs by selecting parameters from a drop down list.
