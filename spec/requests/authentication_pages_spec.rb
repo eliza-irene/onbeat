@@ -33,10 +33,6 @@ RSpec.describe "Authentication" do
           click_button "Sign In"
         end
 
-<<<<<<< HEAD
-=======
-        it { should_not have_link('Profile', href: user_path(@user)) }
->>>>>>> de42ba1eae71e78cf0b6cbfcf0303f87ac577704
         it { should have_link('Sign In', href: signin_path) }
         it { should have_link('Sign Up', href: signup_path) }
       end

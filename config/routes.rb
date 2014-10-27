@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
 root  'static_pages#home'
-<<<<<<< HEAD
 
 match '/signup', to: 'users#new',         via: 'get'
 match '/signin', to: 'sessions#new',      via: 'get'
 match '/signout', to: 'sessions#destroy', via: 'delete'
-resources :users
-# resources :sessions, only: [:create, :destroy]
+
+resources :users, only: [:create, :show]
+resources :sessions, only: [:create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -64,14 +64,5 @@ resources :users
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-=======
 
-match '/signup',  to: 'users#new',        via: 'get'
-match '/signin', to: 'sessions#new',      via: 'get'
-match '/signout', to: 'sessions#destroy', via: 'delete'
-
-resources :users, only: [:create, :show]
-resources :sessions, only: [:create, :destroy]
-
->>>>>>> de42ba1eae71e78cf0b6cbfcf0303f87ac577704
 end
