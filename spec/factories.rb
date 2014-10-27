@@ -6,11 +6,11 @@ FactoryGirl.define do
   sequence :email do |n|
     "email-#{n}@email.com"
   end
-
   factory :user do
-    name
-    email
+    name                  
+    email                
     password              "foobar"
     password_confirmation "foobar"
   end
 end
+
