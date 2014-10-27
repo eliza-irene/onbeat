@@ -40,6 +40,7 @@ on.BEAT is being developed for a project for the September 2014 Web Development 
 * As a user, I want to learn about the benefit of working out to music at different tempos.
 * As a user, I want to be able logout of my account.
 <br />
+
 ##Diagrams
 ---
 Below are **mockups** for on.BEAT (created using [basalmiq](http://balsamiq.com/)) <br />
