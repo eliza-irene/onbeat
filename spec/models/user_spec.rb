@@ -136,7 +136,7 @@ describe User do
     before do
       User.destroy_all
       @user.save
-      FactoryGirl.create(:user, user_id: @user.id)
+      FactoryGirl.create(:playlist, user_id: @user.id)
     end
 
     describe "playlist" do
@@ -153,5 +153,4 @@ describe User do
       end
     end
   end
-
 end

@@ -1,0 +1,18 @@
+<%= form_for(@playlist) do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+<br />
+<div class="text-center">
+  <h2><small>
+    <div>
+      <%=f.label :name %> </br>
+      <%=f.text_field :name %>
+    </div>
+    <div>
+      <%= f.submit 'Create Playlist', class: "btn btn-lg btn-info" %>
+    </div>
+  </small></h2>
+</div>
+
+<% end %>
