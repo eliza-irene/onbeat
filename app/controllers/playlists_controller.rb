@@ -12,7 +12,7 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = current_user.playlists.build(playlist_params)
     if @playlist.save
-      redirect_to task_path(@playlist.id), notice: "You have created a new playlist!"
+      redirect_to playlist_path(@playlist.id), notice: "You have created a new playlist!"
     else
       render 'new'
     end

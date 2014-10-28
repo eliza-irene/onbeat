@@ -1,0 +1,22 @@
+<% provide(:title, "My Playlists") %>
+
+<h1 class="text-center">All Playlists</h1>
+<div class="jumbotron">
+  <table class="table table-striped table-hover table-bordered">
+    <tr>
+      <th>Playlist Names</th>
+      <th colspan="3"></th>
+    </tr>
+    <% @playlists.each do | playlist | %>
+      <tr>     
+        <td><%= playlist.name%></td>
+        <td><%= link_to 'View', playlist_path(playlist), class:"btn btn-default" %></td>
+        <td><%= link_to 'Delete', playlist_path(playlist),  
+                      method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-default" %></td 
+      </tr>
+  <% end %>
+  </table>
+
+  <div class="btn btn-lg btn-info" role="button"><%= link_to 'New Playlist', new_playlist_path %> </div>
+</div>
+
