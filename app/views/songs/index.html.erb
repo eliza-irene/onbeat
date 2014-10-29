@@ -1,19 +1,29 @@
-<h1>Song Search Result</h1>
+<div class="text-center">
+  <h1>Song Search Results</h1>
+  <%= form_tag songs_path, :method => 'get' do %>
+    <%= text_field_tag :min_tempo, params[:min_tempo] %>
+    <%= text_field_tag :max_tempo, params[:max_tempo] %>
+    <%= text_field_tag :style,     params[:style] %>
+    <%= text_field_tag :mood,      params[:mood] %>
+    <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
+  <% end %>
+</div>
 
-<%= form_tag songs_path, :method => 'get' do %>
-  <%= text_field_tag :min_tempo, params[:min_tempo] %>
-  <%= text_field_tag :max_tempo, params[:max_tempo] %>
-  <%= text_field_tag :style,     params[:style] %>
-  <%= text_field_tag :mood,      params[:mood] %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
-
-<% unless @results.nil? %>
-  <% @results["response"]["songs"].each do |song| %>
-    <ul>
-      <li>
-        <%= "Song Name: #{song["title"]} by: #{song["artist_name"]}"%>
-      </li>
-    </ul>
-  <% end%>
-<% end %>
+<div class="jumbotron">
+  <table class="table table-striped table-hover table-bordered">
+    <tr>
+      <th>Song Title</th>
+      <th>Artist Name</th>
+      <th>Add to Playlist?</th>
+    </tr>
+    <% unless @results.nil? %>
+    <tr>
+      <% @results["response"]["songs"].each do |song| %>
+        <td><%= "#{song["title"]}" %></td> 
+        <td><%= "#{song["artist_name"]}" %></td>
+        <td><%= link_to "Add", songs_path(song: { title: song["title"], artist_name: song["artist_name"] } ), method: :post, data: { confirm: 'Add to playlist?' }, class:"btn btn-default" %></td>
+    </tr>
+      <% end%>
+    <% end %>
+  </table>
+</div>
