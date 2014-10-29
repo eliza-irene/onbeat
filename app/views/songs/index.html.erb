@@ -1,13 +1,39 @@
 <div class="text-center">
   <h1>Song Search Results</h1>
+  <p> Set your search parameters below.</p>   
+  <p>To search for songs with a BPM of 180, enter 179 in the "Min BPM" box and 181 in the "Max BPM" box.  Happy searching!<p/>
+   </div>
+   <div class="jumbotron">
   <%= form_tag songs_path, :method => 'get' do %>
-    <%= text_field_tag :min_tempo, params[:min_tempo] %>
-    <%= text_field_tag :max_tempo, params[:max_tempo] %>
-    <%= text_field_tag :style,     params[:style] %>
-    <%= text_field_tag :mood,      params[:mood] %>
+    Min BPM
+    <%= text_field_tag :min_tempo, params[:min_tempo] %><br/>
+    Max BPM
+    <%= text_field_tag :max_tempo, params[:max_tempo] %> <br/>
+    <%= select_tag :style,     options_for_select([["select genre", " "], 
+                                                   ["80's","80s"], 
+                                                   ["90's","90s"], 
+                                                   ["Pop Folk","pop_folk"], 
+                                                   ["Country", "country"], 
+                                                   ["Salsa", "salsa"],
+                                                   ["Ambient", "ambient"],  
+                                                   ["Hip Hop", "hip_hop"], 
+                                                   ["Punk", "punk"], 
+                                                   ["Rap", "rap"], 
+                                                   ["Reggae", "reggae"], 
+                                                   ["Rock", "rock"]]) %>
+    <%= select_tag :mood,      options_for_select([["select mood", " "],
+                                                   ["Angry","angry"], 
+                                                   ["Cheerful","cheerful"], 
+                                                   ["Complex","complex"],
+                                                   ["Energetic", "energetic"],
+                                                   ["Fun", "fun"],
+                                                   ["Gentle", "gentle"],
+                                                   ["Party Music", "party_music"],
+                                                   ["Relax", "relax"],
+                                                   ["Rowdy", "rowdy"],
+                                                   ["Dark", "dark"]]) %> <br/>
     <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
   <% end %>
-</div>
 
 <div class="jumbotron">
   <table class="table table-striped table-hover table-bordered">
@@ -21,7 +47,17 @@
       <% @results["response"]["songs"].each do |song| %>
         <td><%= "#{song["title"]}" %></td> 
         <td><%= "#{song["artist_name"]}" %></td>
-        <td><%= link_to "Add", songs_path(song: { title: song["title"], artist_name: song["artist_name"] } ), method: :post, data: { confirm: 'Add to playlist?' }, class:"btn btn-default" %></td>
+        <td>
+          <%= form_for(:song, url: songs_path) do |f| %>
+            <%= f.select(:playlist_id, options_for_select(@playlists.map { |pl| [pl.name, pl.id]})) %>
+            <%= f.hidden_field :name,      value: song["title"] %>
+            <%= f.hidden_field :artist,    value: song["artist_name"] %>
+            <%= f.hidden_field :artist,    value: song["artist_name"] %>
+            <%= f.hidden_field :min_tempo, value: params[:min_tempo]%>
+            <%= f.hidden_field :max_tempo, value: params[:max_tempo]%> 
+            <%= f.submit "Add" %>  
+          <% end %>
+        </td>
     </tr>
       <% end%>
     <% end %>

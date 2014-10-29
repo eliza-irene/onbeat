@@ -1,12 +1,8 @@
 class Song < ActiveRecord::Base
-  belongs_to :playlist
+  # Ask Gerry to explain
+  attr_accessor :min_tempo, :max_tempo
 
-  # validates :name,        presence: true, length: { in: 1..254 }
-  # validates :artist,      presence: true, length: { in: 1..254 }
-  # validates :mood,        presence: true, length: { in: 1..50 }
-  # validates :genre,       presence: true, length: { in: 1..50 }
-  # validates :bpm,         presence: true
-  # validates :playlist_id, presence: true
+  belongs_to :playlist
 
   def self.party(min_tempo, max_tempo, style, mood)
     min_tempo ||= "179"

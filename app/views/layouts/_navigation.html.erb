@@ -1,14 +1,3 @@
-<style type="text/css">
-.navbar-default {
-  border-radius: 0px;
-}
-
-.navbar-brand {
-  font-size: 24px;
-}
-</style>
-
-
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,17 +8,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/home">on.BEAT</a>
+      <% if signed_in? %>
+        <a class="navbar-brand" href="/playlists">on.BEAT</a>
+      <% else %>
+        <a class="navbar-brand" href="/home">on.BEAT</a>
+      <% end %>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
       <% if signed_in? %>
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="/playlists">Playlists</a></li>
-          <li><a href="songs/index">Search</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a href="/songs">Search</a></li>
+          <li><a href="/about">About on.BEAT</a></li>
         </ul> 
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -42,7 +32,7 @@
       <% else %>
         <ul class="nav navbar-nav navbar-left">
           <li><a href="/home">Home</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a href="/about">About on.BEAT</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Sign Up", signup_path %></li>

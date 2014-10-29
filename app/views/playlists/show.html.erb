@@ -1,10 +1,29 @@
 <% provide(:title, @playlist.name) %>
 
-<h1 class="text-center">View Playlist</h1>
-
-<div class="jumbotron"> 
+<h1 class="text-center">View Playlist:</h1>
+<div class="jumbotron text-center"> 
   <br/>
-  <p class="lead text-center"> <%=@playlist.name%> </p>
-   <!-- iterate over songs to display on page-->
+  <p class="lead text-center" id="playlist_name"> <%= @playlist.name %> </p>
+  <table class="table table-striped table-hover table-bordered">
+    <tr>
+      <th class="text-center">Song Title</th>
+      <th class="text-center">Artist Name</th>
+      <th class="text-center">Average BPM</th>
+      <th class="text-center">Delete from Playlist?</th>
+    </tr>
+    
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.name %></td>
+        <td><%= song.artist %></td>
+        <td><%= song.bpm %></td>
+        <td class="text-center"><%= link_to 'Delete', song_path(song),
+                                method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default" %></td> 
+      </tr>
+    <% end%>
+  </table>
 </div>
 
+<div class="text-center">
+  <a class="btn btn-info" id="search_btn" href="/songs">Search for Songs</a>
+</div>

@@ -2,12 +2,32 @@
   border-radius: 0px;
 }
 
+#search_btn {
+  margin: 15px;
+}
+
+#playlist_name {
+  font-size: 36px;
+}
+
 .jumbotron {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
   padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 15px;
+}
+
+/* nav */
+
+.navbar-default {
+  border-radius: 0px;
+}
+
+.navbar-brand {
+  font-size: 24px;
 }
 
 /* forms */
