@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :signed_in_user, only:[:show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -24,7 +26,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation) # DO NOT ALLOW ADMIN
   end
 
-    def signed_in_user
+  def signed_in_user
     unless signed_in?
       store_location
       redirect_to signin_path, notice: "Please sign in." 

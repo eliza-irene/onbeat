@@ -20,9 +20,9 @@ describe SessionsController, type: :controller do
         controller.should be_signed_in
       end
 
-      it "redirects to user#show" do
+      it "redirects to playlists#index" do
         post :create, session: { email: @user.email, password: @user.password }
-        expect(response).to redirect_to(user_path(@user.id))
+        expect(response).to redirect_to(playlists_path(@user.id))
       end
     end
 

@@ -1,0 +1,19 @@
+<h1>Song Search Result</h1>
+
+<%= form_tag songs_path, :method => 'get' do %>
+  <%= text_field_tag :min_tempo, params[:min_tempo] %>
+  <%= text_field_tag :max_tempo, params[:max_tempo] %>
+  <%= text_field_tag :style,     params[:style] %>
+  <%= text_field_tag :mood,      params[:mood] %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% unless @results.nil? %>
+  <% @results["response"]["songs"].each do |song| %>
+    <ul>
+      <li>
+        <%= "Song Name: #{song["title"]} by: #{song["artist_name"]}"%>
+      </li>
+    </ul>
+  <% end%>
+<% end %>
