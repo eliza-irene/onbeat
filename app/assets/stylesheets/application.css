@@ -13,9 +13,10 @@
 
  *= import "font-awesome-sprockets"
  *= import "font-awesome"
- *= require bootstrap.min
- *= require_tree .
  *= require custom
  *= require_self
+ *= require bootstrap.min
+ *= require_tree .
+
  */
 

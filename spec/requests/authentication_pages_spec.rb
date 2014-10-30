@@ -21,7 +21,7 @@ RSpec.describe "Authentication" do
         before do
           fill_in "Email",    with: @user.email
           fill_in "Password", with: @user.password
-          click_button "Sign In"
+          click_button "Ready to Rock!"
         end
 
         it { should_not have_link('Sign In', href: signin_path) }
@@ -30,7 +30,7 @@ RSpec.describe "Authentication" do
 
       context "invalid info" do
         before do
-          click_button "Sign In"
+          click_button "Ready to Rock!"
         end
 
         it { should have_link('Sign In', href: signin_path) }

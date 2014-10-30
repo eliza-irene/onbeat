@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe UsersController, type: :controller do 
+  before do
+    User.destroy_all
+  end
+
+  let(:user) { FactoryGirl.create(:user)}
+  
   describe "GET new" do
     it "renders :new" do
       get :new

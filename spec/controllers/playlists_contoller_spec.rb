@@ -1,138 +1,147 @@
 require 'spec_helper'
 
-# describe PlaylistsController, type: :controller do 
+describe PlaylistsController, type: :controller do 
+  before do
+    User.destroy_all
+  end
 
-#   describe "GET show / playlist view page" do
-#     let(:playlist) { FactoryGirl.create(:playlist)}
+  let(:user) { FactoryGirl.create(:user)}
+  before { sign_in user, no_capybara: true }
 
-#     it "renders :show" do
-#       get :show, id: playlist.id
-#       expect(response).to render_template(:show)
-#     end
+   describe "GET show / playlist view page" do
+     let(:playlist) { FactoryGirl.create(:playlist) }
 
-#     it "assigns requested playlist to @playlist" do
-#       get :show, id: playlist.id
-#       assigns(:playlist).should eq(playlist)
-#     end
-#   end
+     it "renders :show" do
+       get :show, id: playlist.id
+       expect(response).to render_template(:show)
+     end
 
-#   describe "GET new / initiate a new playlist" do
-#     it "renders :new" do
-#       get :new
-#       expect(response).to render_template(:new)
-#     end
+     it "assigns requested playlist to @playlist" do
+       get :show, id: playlist.id
+       assigns(:playlist).should eq(playlist)
+     end
+   end
 
-#     it "assigns new playlist to @playlist" do
-#       get :new
-#       assigns(:playlist).should be_a_new(Playlist)
-#     end
-#   end
+   describe "GET new / initiate a new playlist" do
+     let(:playlist) { FactoryGirl.create(:playlist) }
 
-#   describe "POST create / save an initiated playlist" do
-#     context "with valid attributes" do
-#       it "saves the new playlist to @playlist" do
-#         expect {
-#           post :create, playlist: FactoryGirl.attributes_for(:playlist)
-#         }.to change(Playlist, :count).by(1)
-#       end
+     it "renders :new" do
+       get :new
+       expect(response).to render_template(:new)
+     end
 
-#       it "redirects to :show / playlist view page" do
-#         post :create, playlist: FactoryGirl.attributes_for(:playlist)
-#         last_playlist = Playlist.last
-#         expect(response).to redirect_to(last_playlist.id)
-#       end
-#     end
+     it "assigns new playlist to @playlist" do
+       get :new
+       assigns(:playlist).should be_a_new(Playlist)
+     end
+   end
 
-#     context "with invalid attributes" do
-#       it "does not save the new Playlist to @playlist" do
-#         expect{
-#           post :create, playlist: { name: " " }
-#         }.to_not change(Playlist, :count)
-#       end
+  describe "POST create / save an initiated playlist" do
+    
+    context "with valid attributes" do
+      it "saves the new playlist to @playlist" do
+        expect {
+          post :create, playlist: FactoryGirl.attributes_for(:playlist)
+        }.to change(Playlist, :count).by(1)
+      end
 
-#       it "re-renders :new" do
-#         post :create, playlist: { name: " " }
-#         expect(response).to render_template(:new)
-#       end
-#     end
-#   end
+      it "redirects to :show / playlist view page" do
+        post :create, playlist: FactoryGirl.attributes_for(:playlist)
+        last_playlist = Playlist.last
+        expect(response).to redirect_to(last_playlist.id)
+      end
+    end
 
-#   describe "GET edit / edit playlist" do
-#     let(:playlist) { FactoryGirl.create(:playlist) }
+    context "with invalid attributes" do
+      it "does not save the new Playlist to @playlist" do
+        expect{
+          post :create, playlist: FactoryGirl.attributes_for(:playlist, name: " ")
+        }.to_not change(Playlist, :count)
+      end
 
-#     it "renders :edit" do
-#     get :edit, id: playlist.id 
-#     expect(response).to render_template(:edit)
-#     end
+      it "re-renders :new" do
+        post :create, playlist: FactoryGirl.attributes_for(:playlist, name: " ")
+        expect(response).to render_template(:new)
+      end
+    end
+  end
 
-#     it "assigns requested playlist to @playlist" do
-#       get :edit, id: playlist.id
-#       assigns(:playlist).should eq(playlist)
-#     end
-#   end
+ describe "GET edit / edit playlist" do
+   let(:playlist) { FactoryGirl.create(:playlist) }
 
-#   describe 'PUT update / changes name of playlist' do 
-#     let(:playlist) { FactoryGirl.create(:playlist, name: "Weights") }
+   it "renders :edit" do
+   get :edit, id: playlist.id 
+   expect(response).to render_template(:edit)
+   end
 
-#     context "valid attributes" do
+   it "assigns requested playlist to @playlist" do
+     get :edit, id: playlist.id
+     assigns(:playlist).should eq(playlist)
+   end
+ end
 
-#       it "changes @playlist's name attribute" do
-#         put :update, id: playlist.id, playlist: FactoryGirl.attributes_for(:playlist, name: "Running")
-#         playlist.reload
-#         expect(playlist.name).to eq("Running")
-#       end
+ describe 'PUT update / changes name of playlist' do 
+   let(:playlist) { FactoryGirl.create(:playlist, name: "Weights") }
 
-#       it "re-directs to :show" do
-#         post :update, id: playlist.id, playlist: FactoryGirl.attributes_for(:playlist, name: "Running")
-#         last_playlist = Playlist.last
-#         expect(response).to redirect_to(playlist_path(last_playlist.id))
-#       end
-#     end
+   context "valid attributes" do
 
-#     context "invalid attributes" do
+     it "changes @playlist's name attribute" do
+       put :update, id: playlist.id, playlist: FactoryGirl.attributes_for(:playlist, name: "Running")
+       playlist.reload
+       expect(playlist.name).to eq("Running")
+     end
 
-#       it "does not change @playlist's name attribute" do
-#         put :update, id: playlist.id, playlist:{ name: " " }
-#         playlist.reload
-#         expect(playlist.name).to eq("Weights")
-#       end
+     it "re-directs to :show" do
+       post :update, id: playlist.id, playlist: FactoryGirl.attributes_for(:playlist, name: "Running")
+       last_playlist = Playlist.last
+       expect(response).to redirect_to(playlist_path(last_playlist.id))
+     end
+   end
 
-#       it "re-renders :edit" do
-#         put :update, id: playlist.id, playlist:{ name: " " }
-#         expect(response).to render_template(:edit)
-#       end
-#     end
-#   end
+   context "invalid attributes" do
 
-#   describe "GET index / displays all playlists" do   
-#     before { Playlist.destroy_all } 
+     it "does not change @playlist's name attribute" do
+       put :update, id: playlist.id, playlist:{ name: " " }
+       playlist.reload
+       expect(playlist.name).to eq("Weights")
+     end
 
-#     let(:first_playlist)  { FactoryGirl.create(:playlist, name: "Run") }
-#     let(:second_playlist) { FactoryGirl.create(:playlist, name: "Yoga") }
+     it "re-renders :edit" do
+       put :update, id: playlist.id, playlist:{ name: " " }
+       expect(response).to render_template(:edit)
+     end
+   end
+ end
 
-#     it "renders :index" do
-#       get :index
-#       expect(response).to render_template(:index)
-#     end
+ describe "GET index / displays all playlists" do   
+   before { Playlist.destroy_all } 
 
-#     it "assigns all playlists to @playlists as an array" do
-#       get :index
-#       expect(assigns(:playlists)).to eq( [first_playlist, second_playlist] ) 
-#     end
-#   end
+   let(:first_playlist)  { FactoryGirl.create(:playlist, name: "Run") }
+   let(:second_playlist) { FactoryGirl.create(:playlist, name: "Yoga") }
 
-#   describe 'DELETE destroy / deletes whole playlist' do
-#     let!(:playlist) { FactoryGirl.create(:playlist) }
+   it "renders :index" do
+     get :index
+     expect(response).to render_template(:index)
+   end
 
-#     it "deletes the requested playlist" do
-#       expect {
-#         delete :destroy, id: playlist.id
-#       }.to change(Playlist, :count).by(-1)
-#     end
+   it "assigns all playlists to @playlists as an array" do
+     get :index
+     expect(assigns(:playlists)).to eq( [first_playlist, second_playlist] ) 
+   end
+ end
 
-#     it "re-directs to :index" do
-#       delete :destroy, id: playlist.id
-#       expect(response).to redirect_to(playlists_path)
-#     end
-#   end
-# end
+ describe 'DELETE destroy / deletes whole playlist' do
+   let!(:playlist) { FactoryGirl.create(:playlist) }
+
+   it "deletes the requested playlist" do
+     expect {
+       delete :destroy, id: playlist.id
+     }.to change(Playlist, :count).by(-1)
+   end
+
+   it "re-directs to :index" do
+     delete :destroy, id: playlist.id
+     expect(response).to redirect_to(playlists_path)
+   end
+ end
+end

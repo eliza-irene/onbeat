@@ -1,16 +1,16 @@
 require 'spec_helper'
 
 describe "playlists_pages" do 
+  let(:my_playlist) { FactoryGirl.create(:playlist) }
+  before { @playlist = Playlist.new(name: "Running Mix", user_id: user.id) }
 
   subject { page }
 
   describe "show page GET /playlists/:id" do
-    let(:my_playlist) { FactoryGirl.create(:playlist) }
-
     before { visit playlist_path(my_playlist.id) }
-    it { should have_title("on.BEAT | Workout") }
 
-    it { should have_selector('h2', "View Playlist:") }
+    it { should have_title("on.BEAT | Workout") }
+    it { should have_selector('h1', "View Playlist:") }
     it { should have_selector('p', "Workout") }   
   end
 
@@ -18,7 +18,7 @@ describe "playlists_pages" do
     before { visit new_playlist_path }
   
     it { should have_title("on.BEAT | New Playlist") }
-    it { should have_selector('h1', text: "New Playlist") }
+    it { should have_selector('h1', "New Playlist") }
 
     describe "create POST /playlists" do
       let(:submit) { "Create Playlist" }

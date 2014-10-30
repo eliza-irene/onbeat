@@ -22,7 +22,7 @@ describe SessionsController, type: :controller do
 
       it "redirects to playlists#index" do
         post :create, session: { email: @user.email, password: @user.password }
-        expect(response).to redirect_to(playlists_path(@user.id))
+        expect(response).to redirect_to(playlists_path)
       end
     end
 

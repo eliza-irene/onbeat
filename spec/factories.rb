@@ -11,5 +11,11 @@ FactoryGirl.define do
     name "Workout"
     user
   end
+
+  factory :song do
+    name "Song Title"
+    artist "Musician Names"
+    playlist
+  end
 end
 
