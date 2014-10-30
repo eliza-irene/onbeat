@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -9,19 +9,21 @@
         <span class="icon-bar"></span>
       </button>
       <% if signed_in? %>
-        <a class="navbar-brand" href="/playlists">on.BEAT</a>
+        <%= link_to "on.BEAT", user_path(current_user.id), class: "navbar-brand" %>
       <% else %>
-        <a class="navbar-brand" href="/home">on.BEAT</a>
+        <ul class="navbar-brand"><%= link_to "on.BEAT", home_path %></ul>
       <% end %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if signed_in? %>
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="/songs">Search</a></li>
-          <li><a href="/about">About on.BEAT</a></li>
+          <li><%= link_to "My Playlits", playlists_path %></li>
+          <li><%= link_to "Search", songs_path %></li>
+          <li><%= link_to "About", about_path %></li>
         </ul> 
         <ul class="nav navbar-nav navbar-right">
+          <p class="navbar-text"><%= current_user.email %></p>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
@@ -31,8 +33,7 @@
         </ul>   
       <% else %>
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="/home">Home</a></li>
-          <li><a href="/about">About on.BEAT</a></li>
+          <li><%= link_to "About on.BEAT", about_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Sign Up", signup_path %></li>

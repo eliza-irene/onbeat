@@ -4,13 +4,12 @@ class Song < ActiveRecord::Base
 
   belongs_to :playlist
 
-  def self.party(min_tempo, max_tempo, style, mood)
-    min_tempo ||= "179"
-    max_tempo ||= "181"
-    style     ||= "pop"
-    mood      ||= "2"
+  def self.party(min_tempo, max_tempo, style)
+    min_tempo = "100" if style.blank?
+    max_tempo = "500" if style.blank? 
+    style     = "pop" if style.blank?
 
-    search_url = "http://developer.echonest.com/api/v4/song/search?api_key=O7K1WS4SSGDGAJRKE&format=json&results=10&min_tempo=#{min_tempo}&max_tempo=#{max_tempo}&style=#{style}&mood=#{mood}"
+    search_url = "http://developer.echonest.com/api/v4/song/search?api_key=O7K1WS4SSGDGAJRKE&format=json&results=15&song_min_hotttnesss=0.4&min_tempo=#{min_tempo}&max_tempo=#{max_tempo}&style=#{style}"
 
     HTTParty.get search_url
   end

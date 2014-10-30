@@ -1,9 +1,21 @@
+/* btns */
+
 .btn {
   border-radius: 0px;
 }
 
 #search_btn {
   margin: 15px;
+}
+
+#profile_btns {
+  a {
+  color: white;
+  }
+}
+
+.table {
+  padding: 20px;
 }
 
 #playlist_name {
@@ -18,6 +30,7 @@
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 /* nav */

@@ -3,8 +3,8 @@ class SongsController < ApplicationController
 
   def index
     @playlists = current_user.playlists
-    if params[:min_tempo] && params[:max_tempo] && params[:style] && params[:mood]
-      @results = Song.party(params[:min_tempo], params[:max_tempo], params[:style], params[:mood])
+    if params[:min_tempo] && params[:max_tempo] && params[:style] 
+      @results = Song.party(params[:min_tempo], params[:max_tempo], params[:style])
     else
       @results = nil
     end
@@ -19,7 +19,7 @@ class SongsController < ApplicationController
     bpm = (min_tempo + max_tempo)/2
     @song.bpm = bpm
     if @song.save
-      redirect_to songs_path, notice: "You successfully added a song"
+      redirect_to songs_path, notice: "Nice! You added a song to your playlist!"
     else
       render 'new'
     end

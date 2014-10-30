@@ -1,11 +1,12 @@
 <% provide(:title, @user.name) %>
 
+<section>
+  <h1><%= @user.name %></h1>
+  <p class="lead"><%= @user.email %></p>
+</section>
 
-<div class="row">
-  <aside class="span4">
-    <section>
-    <h1><%= @user.name %></h1>
-    <p><%= @user.email %></p>
-    </section>
-  </aside>
+<div id="profile_btns">
+  <div class="btn btn-lg btn-info" role="button"><a href="/playlists/new">New Playlist</a></div>
+  <div class="btn btn-lg btn-info" role="button"><a href="/playlists">My Playlists</a></div>
+  <div class="btn btn-lg btn-info" role="button"><a href="/songs">New Song Search</a></div>
 </div>
