@@ -1,12 +1,13 @@
-
-<h1 class="text-center">Song Search</h1>
+<% provide(:title, "Search") %>
 
 <div class="jumbotron" id="search">
+  <h1 class="text-center">Song Search</h1>
   <div class="col-md-12 text-center">
     <p> Select your search parameters to begin.</p>   
   </div>
   <div class="col-md-12 text-center">
     <%= form_tag songs_path, :method => 'get' do %>
+      <a class="btn btn-default" href="/playlists/new">New Playlist</a>
       <%= select_tag :min_tempo, options_for_select([["select min bpm", " "], 
                                                          ["100", "100"],
                                                          ["120", "120"],
@@ -66,11 +67,11 @@
     <% end %>
   </div>
 
-  <table class="table table-striped table-hover table-bordered">
+  <table class="table table-hover table-responsive text-center">
     <tr>
-      <th>Song Title</th>
-      <th>Artist Name</th>
-      <th>Add to Playlist?</th>
+      <th class="text-center">Song Title</th>
+      <th class="text-center">Artist Name</th>
+      <th class="text-center">Add to Playlist?</th>
     </tr>
     <% unless @results.nil? %>
       <% @results["response"]["songs"].each do |song| %>

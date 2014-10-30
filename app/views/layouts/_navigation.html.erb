@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <% if signed_in? %>
-        <%= link_to "on.BEAT", user_path(current_user.id), class: "navbar-brand" %>
+        <ul class="navbar-brand"><%= link_to "on.BEAT", user_path(current_user.id) %></ul>
       <% else %>
         <ul class="navbar-brand"><%= link_to "on.BEAT", home_path %></ul>
       <% end %>
@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if signed_in? %>
         <ul class="nav navbar-nav navbar-left">
-          <li><%= link_to "My Playlits", playlists_path %></li>
+          <li><%= link_to "My Playlists", playlists_path %></li>
           <li><%= link_to "Search", songs_path %></li>
           <li><%= link_to "About", about_path %></li>
         </ul> 
@@ -33,7 +33,7 @@
         </ul>   
       <% else %>
         <ul class="nav navbar-nav navbar-left">
-          <li><%= link_to "About on.BEAT", about_path %></li>
+          <li><%= link_to "About]", about_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Sign Up", signup_path %></li>
