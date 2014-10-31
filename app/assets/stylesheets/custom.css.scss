@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Raleway|Montserrat+Subrayada:700);
 
 /* font */
 body {
@@ -46,14 +47,37 @@ h1 {
 }
 
 .jumbotron {
-  border-radius: 0px;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-/*  background: #5B6466;
-*/  font-size: 16px;
+  font-size: 16px;
   height: 100%;
   background: transparent;
+}
+
+.home-pg{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  height: 100%;
+  background: transparent;
+  h1 {
+    font-size: 75px;
+  }
+  p {
+    font-size: 40px;
+  }
+}
+
+#bg-home {
+  position: fixed; 
+  top: 0; 
+  left: 0;  
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.8;
+  z-index: -1;
 }
 /* nav */
 
