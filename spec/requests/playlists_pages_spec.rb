@@ -2,7 +2,13 @@ require 'spec_helper'
 
 describe "playlists_pages" do 
   let(:my_playlist) { FactoryGirl.create(:playlist) }
-  before { @playlist = Playlist.new(name: "Running Mix", user_id: user.id) }
+
+  before do
+    User.destroy_all
+    user = FactoryGirl.create(:user)
+    sign_in user
+    @playlist = Playlist.new(name: "Running Mix", user_id: user.id)
+  end
 
   subject { page }
 

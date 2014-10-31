@@ -3,10 +3,11 @@ require 'spec_helper'
 describe PlaylistsController, type: :controller do 
   before do
     User.destroy_all
+    sign_in user, no_capybara: true
   end
 
   let(:user) { FactoryGirl.create(:user)}
-  before { sign_in user, no_capybara: true }
+  
 
    describe "GET show / playlist view page" do
      let(:playlist) { FactoryGirl.create(:playlist) }
@@ -48,7 +49,7 @@ describe PlaylistsController, type: :controller do
       it "redirects to :show / playlist view page" do
         post :create, playlist: FactoryGirl.attributes_for(:playlist)
         last_playlist = Playlist.last
-        expect(response).to redirect_to(last_playlist.id)
+        expect(response).to redirect_to(playlist_path(last_playlist.id))
       end
     end
 
@@ -116,8 +117,8 @@ describe PlaylistsController, type: :controller do
  describe "GET index / displays all playlists" do   
    before { Playlist.destroy_all } 
 
-   let(:first_playlist)  { FactoryGirl.create(:playlist, name: "Run") }
-   let(:second_playlist) { FactoryGirl.create(:playlist, name: "Yoga") }
+   let(:first_playlist)  { FactoryGirl.create(:playlist, name: "Run", user: user) }
+   let(:second_playlist) { FactoryGirl.create(:playlist, name: "Yoga", user: user) }
 
    it "renders :index" do
      get :index

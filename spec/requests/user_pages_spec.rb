@@ -12,7 +12,7 @@ describe "user pages" do
 
     describe "signup" do
       before { visit signup_path }
-      let(:submit) { "Ready to Rock!"}
+      let(:submit) { "Create my account"}
 
       context "valid information" do
         before do
@@ -20,7 +20,7 @@ describe "user pages" do
           fill_in "Name", with: "Liz"
           fill_in "Email", with: "elizabeth.korthof@gmail.com"
           fill_in "Password", with: "foobar"
-          fill_in "Password confirmation", with: "foobar"
+          fill_in "Confirmation", with: "foobar"
         end
 
         it  "creates user" do
@@ -40,11 +40,12 @@ describe "user pages" do
       before do
         User.destroy_all
         user = FactoryGirl.create(:user, name: "Liz", email: "elizabeth.korthof@gmail.com")
+        sign_in user
         visit user_path(user.id)
       end
 
       it { should have_title("on.BEAT | Liz") }
-      it { should have_selector('h1', "Liz") }
+      it { should have_selector('h1', text: "Liz") }
     end
   end
 end

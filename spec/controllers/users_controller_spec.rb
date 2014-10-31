@@ -50,17 +50,18 @@ describe UsersController, type: :controller do
   end
 
   describe "GET show" do
-      let(:user) { FactoryGirl.create(:user)}
+    let(:user) { FactoryGirl.create(:user)}
+    before { sign_in user, no_capybara: true }
+    
 
-      it "renders :show" do
-        get :show, id: user.id
-        expect(response).to render_template(:show)
-      end
-
-      it "assigns requested task to @user" do
-        get :show, id: user.id
-        assigns(:user).should eq(user)
-      end
+    it "renders :show" do
+      get :show, id: user.id
+      expect(response).to render_template(:show)
     end
 
+    it "assigns requested task to @user" do
+      get :show, id: user.id
+      assigns(:user).should eq(user)
+    end
+  end
 end
