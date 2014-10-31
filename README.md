@@ -25,17 +25,15 @@ on.BEAT is being developed for a project for the September 2014 Web Development 
 ---
 * As a user, I want to log in to my account.
 * As a user, I want to sign up for an account with an email address and password.
-* As a user, I want to be redirected to my profile page after sign in so that I can access, or add to, my playlists.
+* As a user, I want to be redirected to my profile page after sign in so that I can access or add to my playlists, search for new songs, or learn about BPM and workouts.
 * As a user, I want to create new playlists.
-* As a user, I want to be able to scroll through covers of my playlists to see each named list I have.
+* As a user, I want to be able to view my playlists to see each named list I have.
 * As a user, I want to be able to view the songs in each playlist I have.
-* As a user, I want to be able to edit the order of the songs in my playlist by dragging them.
 * As a user, I want to be able to delete individual songs from a playlist.
 * As a user, I want to be able to delete an entire playlist.
-* As a user, I want to perform a search for new songs by selecting parameters from a drop down list.
-* As a user, I want to see a list of 10 search results as album cover photo, artist name, song name, BPM.
+* As a user, I want to perform a search for new songs by selecting parameters from drop down lists.
+* As a user, I want to see a list of 15 search results as artist name and song name.
 * As a user, I want to select songs from my search results and save them to one of my playlists.
-* As a user, I want to have the option to refresh my search results to see new results.
 * As a user, I want to learn about the benefit of working out to music at different tempos.
 * As a user, I want to be able logout of my account.
 <br />

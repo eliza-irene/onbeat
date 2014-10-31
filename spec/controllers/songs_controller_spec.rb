@@ -22,18 +22,5 @@ describe SongsController, type: :controller do
         expect(response).to redirect_to(songs_path)
       end
     end
-
-    # context "with invalid attributes" do
-    #   it "does not save the new Playlist to @playlist" do
-    #     expect{
-    #       post :create, playlist: { name: " " }
-    #     }.to_not change(Playlist, :count)
-    #   end
-
-    #   it "re-renders :new" do
-    #     post :create, playlist: { name: " " }
-    #     expect(response).to render_template(:new)
-    #   end
-    # end
   end
 end
