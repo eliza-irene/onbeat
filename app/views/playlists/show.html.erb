@@ -1,6 +1,6 @@
 <% provide(:title, @playlist.name) %>
 
-<div class="jumbotron text-center"> 
+<div class="jumbotron text-center table" id="view"> 
   <h1 class="text-center">View Playlist:</h1>
   <p class="lead text-center" id="playlist_name"> <%= @playlist.name %> </p>
   <table class="table table-hover table-responsive text-center">
@@ -24,6 +24,6 @@
 </div>
 
 <div class="text-center">
-  <a class="btn btn-lg btn-info" id="search_btn" href="/playlists">Back to Playlists</a>
-  <a class="btn btn-lg btn-info" id="search_btn" href="/songs">Search for Songs</a>
+  <a class="btn btn-lg btn-warning" id="search_btn" href="/playlists">Back to Playlists</a>
+  <a class="btn btn-lg btn-warning" id="search_btn" href="/songs">Search for Songs</a>
 </div>

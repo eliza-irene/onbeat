@@ -2,15 +2,12 @@
 <%= render 'shared/error_messages', object: f.object %>
 <br />
 <div class="text-center">
-  <h2><small>
-    <div>
+  <h2>
       <%= f.label :name %> </br>
       <%= f.text_field :name %>
-    </div>
-    <div>
+   <br/>
       <%= f.submit 'Create Playlist', class: "btn btn-lg btn-warning", autofocus: true %>
-    </div>
-  </small></h2>
+  </h2>
 </div>
 
 <% end %>
