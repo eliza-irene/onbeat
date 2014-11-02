@@ -67,20 +67,6 @@ describe PlaylistsController, type: :controller do
     end
   end
 
- describe "GET edit / edit playlist" do
-   let(:playlist) { FactoryGirl.create(:playlist) }
-
-   it "renders :edit" do
-   get :edit, id: playlist.id 
-   expect(response).to render_template(:edit)
-   end
-
-   it "assigns requested playlist to @playlist" do
-     get :edit, id: playlist.id
-     assigns(:playlist).should eq(playlist)
-   end
- end
-
  describe 'PUT update / changes name of playlist' do 
    let(:playlist) { FactoryGirl.create(:playlist, name: "Weights") }
 
