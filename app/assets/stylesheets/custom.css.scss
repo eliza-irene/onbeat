@@ -188,17 +188,20 @@ td {
 }
 
 #about {
-      /* IE8 and below */
-    background: rgb(54, 54, 54);
-    /* all other browsers */
-    background: rgba(54, 54, 54, 0.5);
-    color: #E5DFC5;
-    h1 {
-      color: white;
-    }
-    h2 {
-      font-weight: 700;
-      color: white;
-    }
+  /* IE8 and below */
+  background: rgb(54, 54, 54);
+  /* all other browsers */
+  background: rgba(54, 54, 54, 0.5);
+  color: #E5DFC5;
+  h1 {
+    color: white;
   }
+  h2 {
+    font-weight: 700;
+    color: white;
+  }
+}
 
+#search-table {
+  margin-top: 90px;
+}
