@@ -1,8 +1,8 @@
 @import "bootstrap";
-@import url(//fonts.googleapis.com/css?family=Raleway:400,700|Montserrat+Subrayada:700);
+@import url(//fonts.googleapis.com/css?family=Muli:400,600|Montserrat+Subrayada:700);
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Muli', sans-serif;
   background-color: black;
 }
 
@@ -60,7 +60,7 @@ h1 {
 }
 
 .jumbotron {
-  width: 50%;
+  width: 75%;
   padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -70,7 +70,6 @@ h1 {
 }
 
 .jumbotron table {
-  background: gray;
   opacity: 0.8; 
 }
 

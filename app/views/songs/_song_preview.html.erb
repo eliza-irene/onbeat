@@ -1,0 +1,6 @@
+<% @results["response"]["songs"].each do |song| %>
+  <% @song_id = song["tracks"][0]["foreign_id"] %>
+<% end %>
+
+<iframe src="https://embed.spotify.com/?uri=#{@song_id}" target="_top" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+

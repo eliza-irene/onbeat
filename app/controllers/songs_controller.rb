@@ -12,13 +12,7 @@ class SongsController < ApplicationController
 
   def create
     @playlists = current_user.playlists.find(song_params[:playlist_id])
-    @song = @playlists.songs.build(song_params)
-    # Bonus: Put this bpm stuff into the model
-    min_tempo = params[:song][:min_tempo].to_i
-    max_tempo = params[:song][:max_tempo].to_i
-    bpm = (min_tempo + max_tempo)/2
-    # bpm = params[:song][:audio_summary][:tempo].to_i
-    @song.bpm = bpm
+    @song = @playlists.songs.build(song_params)   
     if @song.save
       redirect_to songs_path, notice: "Nice! You added a song to your playlist!"
     else
@@ -36,6 +30,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:name, :artist, :min_tempo, :max_tempo, :playlist_id) # Can add playlist_id
+    params.require(:song).permit(:name, :artist, :min_tempo, :max_tempo, :bpm, :playlist_id) # Can add playlist_id
   end
 end

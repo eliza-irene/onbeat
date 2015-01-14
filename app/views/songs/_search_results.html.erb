@@ -2,6 +2,7 @@
   <tr>
     <td><%= song["title"] %></td> 
     <td><%= song["artist_name"] %></td>
+    <td><%= song["audio_summary"]["tempo"].to_i %></td>
     <td><%= render 'playlist_selector', song: song %></td>
   </tr>
 <% end %>

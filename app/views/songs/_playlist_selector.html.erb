@@ -2,8 +2,8 @@
   <%= f.select(:playlist_id, options_for_select(@playlists.map { |pl| [pl.name, pl.id]})) %>
   <%= f.hidden_field :name,      value: song["title"] %>
   <%= f.hidden_field :artist,    value: song["artist_name"] %>
-  <%= f.hidden_field :artist,    value: song["artist_name"] %>
   <%= f.hidden_field :min_tempo, value: params[:min_tempo]%>
-  <%= f.hidden_field :max_tempo, value: params[:max_tempo]%> 
+  <%= f.hidden_field :max_tempo, value: params[:max_tempo]%>
+  <%= f.hidden_field :bpm,       value: song["audio_summary"]["tempo"].to_i %> 
   <%= f.submit "Add" %>  
 <% end %>
