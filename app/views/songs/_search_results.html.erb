@@ -1,8 +1,8 @@
 <% @results["response"]["songs"].each do |song| %>
   <tr>
-    <td><%= song["title"] %></td> 
-    <td><%= song["artist_name"] %></td>
-    <td><%= song["audio_summary"]["tempo"].to_i %></td>
-    <td><%= render 'playlist_selector', song: song %></td>
+    <td class="text-center"><%= song["title"] %></td> 
+    <td class="text-center"><%= song["artist_name"] %></td>
+    <td class="text-center"><%= song["audio_summary"]["tempo"].to_i %></td>
+    <td class="text-center"><%= render 'playlist_selector', song: song %></td>
   </tr>
 <% end %>

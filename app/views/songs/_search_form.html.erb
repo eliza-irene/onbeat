@@ -1,9 +1,9 @@
-<div class="col-md-12 text-center">
-<%= form_tag songs_path, :method => 'get' do %>
-  <a class="btn btn-default" href="/playlists/new">New Playlist</a>
-  <%= min_tempo_selector %>
-  <%= max_tempo_selector %>
-  <%= genre_selector %>
-  <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
-<% end %>
+<div class="col-sm-12 text-center">
+  <%= form_tag songs_path, :method => 'get' do %>
+    <a class="btn btn-default" href="/playlists/new">New Playlist</a>
+    <%= min_tempo_selector %>
+    <%= max_tempo_selector %>
+    <%= genre_selector %>
+    <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
+  <% end %>
 </div>

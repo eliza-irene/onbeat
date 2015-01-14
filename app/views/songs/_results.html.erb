@@ -1,9 +1,10 @@
 <% unless @results.nil? %>
   <table class="table table-hover table-responsive" id="search-table">
     <tr>
-      <th class="text-center">Song Title</th>
-      <th class="text-center">Artist Name</th>
+      <th class="text-center">Song</th>
+      <th class="text-center">Artist</th>
       <th class="text-center">BPM</th>
+      <th></th>
       <th class="text-center">Add to Playlist?</th>
     </tr>
       <%= render 'search_results' %>

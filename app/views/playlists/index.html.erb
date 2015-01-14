@@ -1,24 +1,28 @@
 <% provide(:title, "My Playlists") %>
 
-<div class="jumbotron table">
-  <h1 class="text-center">All Playlists</h1>
-    <table class="table table-hover table-responsive text-center">
-      <tr>
-        <th class="text-center">Playlist Names</th>
-        <th colspan="3"></th>
-      </tr>
-      <% @playlists.each do | playlist | %>
-        <tr>     
-          <td><%= playlist.name%></td>
-          <td><%= link_to 'View', playlist_path(playlist), class:"btn btn-default" %></td>
-          <td><%= link_to 'Delete', playlist_path(playlist),  
-                        method: :delete, data: { confirm: 'Whoa. Are you sure?'}, class:"btn btn-default" %></td 
+<div class="col-sm-12">
+    <h1 class="text-center">All Playlists</h1>
+      <table class="table table-hover text-center">
+        <tr>
+          <th class="text-center">Playlist Names</th>
+          <th class="text-center">View</th>
+          <th class="text-center">Delete</th>
         </tr>
-      <% end %>
-    </table>
-  <div class="text-center">
-      <div class="btn btn-lg btn-warning"><%= link_to 'New Playlist', new_playlist_path %> </div>
-  </div>
+        <% @playlists.each do | playlist | %>
+          <tr>     
+            <td><%= playlist.name%></td>
+            <td><%= link_to playlist_path(playlist) do %>
+                  <i class="fa fa-eye"></i>
+                <% end %></td>
+            <td><%= link_to playlist_path(playlist), method: :delete, data: { confirm: 'Whoa. Are you sure?'} do %>
+                  <i class="fa fa-trash-o"></i> 
+                <% end %></td>
+          </tr>
+        <% end %>
+      </table>
+    <div class="text-center">
+        <div class="btn btn-lg btn-warning"><%= link_to 'New Playlist', new_playlist_path %> </div>
+    </div>
 </div>
 
 

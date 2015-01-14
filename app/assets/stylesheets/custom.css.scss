@@ -1,14 +1,9 @@
 @import "bootstrap";
-@import url(//fonts.googleapis.com/css?family=Muli:400,600|Montserrat+Subrayada:700);
+@import url(//fonts.googleapis.com/css?family=Muli:300,400|Montserrat+Subrayada:700);
 
-body {
-  font-family: 'Muli', sans-serif;
-  background-color: black;
-}
-
-h1 {
-  font-family: 'Montserrat Subrayada', sans-serif;
-}
+/* -----------------------
+    OVERALL STYLES
+----------------------- */
 #bkgd-img {
   position: fixed; 
   top: 0; 
@@ -18,61 +13,76 @@ h1 {
   min-height: 100%;
   z-index: -1;
 }
-
-/* btns */
-
-.btn {
-  border-radius: 0px;
-  font-size: 16px;
+body {
+  display: block;
+  font-family: 'Muli', sans-serif;
+  background-color: black;
+  max-width: 100%;
+  margin: 0;
 }
-
+.fa {
+  color: white;
+  text-decoration: none;
+}
+h1 {
+  font-family: 'Montserrat Subrayada', sans-serif;
+  font-size: 60px;
+}
+select#min_tempo {
+  border-radius: 20px;
+}
+.table {
+  opacity: 0.6; 
+  background-color: black;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  td {
+    font-size: 30px;
+    font-weight: 300;
+  }
+  th {
+    font-size: 30px;
+    color: #F0AD4E;
+  }
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #C6C2BE;
+  color: black;
+}
+.table.table-hover.table-responsive {
+  overflow-x: auto;
+}
+/* ----- btns ------ */
+.btn {
+  border-radius: 30px;
+  font-size: 20px;
+  a {
+  color: white;
+  }
+}
 .btn-info {
   border: none;
 }
-
 .btn-info a {
   color: white;
   text-decoration: none;
 }
-
-
 #search_btn {
-  margin: 15px;
-}
+  margin: 0 auto;
 
+}
 #profile_btns {
   a {
   color: white;
   }
 }
-
-#playlist_name {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.table {
-  padding: 20px;
-}
-
-#playlist_name {
-  font-size: 36px;
-}
-
-.jumbotron {
-  width: 75%;
-  padding-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 16px;
-  height: 100%;
-  background: transparent;
-}
-
-.jumbotron table {
-  opacity: 0.8; 
-}
-
+/* -------------------------
+        HOME PAGE
+ ------------------------- */
 .home-pg{
   width: 80%;
   margin-left: auto;
@@ -90,15 +100,6 @@ h1 {
     font-size: 25px;
   }
 }
-
-.user-form {
-  width: 40%;
-  margin: 0 auto;
-  p a {
-    color: white;
-  }
-}
-
 #bg-home {
   position: fixed; 
   top: 0; 
@@ -107,19 +108,46 @@ h1 {
   min-height: 100%;
   z-index: -1;
 }
-
-#view {
-  margin-bottom: 0px;
+/* -------------------------
+       SIGNIN/UP PAGES
+ ------------------------- */
+.user-form {
+  width: 40%;
+  margin: 0 auto;
+  p a {
+    color: white;
+  }
 }
-/* nav */
+#signin {
+  width: 50%;
+}
 
+#signup {
+  width: 50%;
+}
+.sign_note {
+  color: white;
+}
+/* -------------------------
+        PLAYLIST PAGE
+ ------------------------- */
+#playlist_name {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+#view {
+  margin-top: 50px;
+}
+/* -------------------------
+        NAV
+ ------------------------- */
 .navbar-default {
   border-radius: 0px;
   font-size: 18px;
   background-color: black; 
   border-color: black;
 }
-
 .navbar-brand {
   a {
     color: #E5DFC5;
@@ -128,64 +156,43 @@ h1 {
     font-family: 'Montserrat Subrayada', sans-serif;
   }
 }
-
-/* forms */
-
-#signin {
-  width: 50%;
-}
-
-#signup {
-  width: 50%;
-}
-
-.sign_note {
-  color: white;
-}
-
-.table {
-  .btn-warning a {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-th.text-center {
-  font-weight: 700;
-  font-size: 20px;
-  }
-td {
-  font-size: 20px;
-}
-
-#spacer {
-  color: transparent;
-}
-
+/* -------------------------
+        SEARCH PAGE 
+ ------------------------- */
 #min_tempo {
   border-radius: 0px;
   height: 36px;
   border-color: white;
 }
-
 #max_tempo {
   border-radius: 0px;
   height: 36px;
   border-color: white;
 }
-
 #style {
   border-radius: 0px;
   height: 36px;
   border-color: white;
 }
-
 #song_playlist_id {
   border-radius: 0px;
   height: 36px;
   border-color: white;
+  border-color: darkslategrey;
+  background-color: darkslategrey;
 }
-
+#search-table {
+  margin-top: 90px;
+}
+.table {
+  .btn-warning a {
+    text-decoration: none;
+    color: white;
+  }
+}
+/* ----------------------
+        ABOUT PAGE 
+ ------------------------- */
 #about {
   /* IE8 and below */
   background: rgb(54, 54, 54);
@@ -199,8 +206,4 @@ td {
     font-weight: 700;
     color: white;
   }
-}
-
-#search-table {
-  margin-top: 90px;
 }

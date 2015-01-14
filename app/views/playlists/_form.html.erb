@@ -1,7 +1,7 @@
 <%= form_for(@playlist) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 <br />
-<div class="text-center">
+<div class="col-sm-12 text-center">
   <h2>
       <%= f.label :name %> </br>
       <%= f.text_field :name %>
