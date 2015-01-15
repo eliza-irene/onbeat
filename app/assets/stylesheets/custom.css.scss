@@ -1,9 +1,13 @@
 @import "bootstrap";
-@import url(//fonts.googleapis.com/css?family=Muli:300,400|Montserrat+Subrayada:700);
+@import url(//fonts.googleapis.com/css?family=Muli:300,400|Raleway:700);
 
 /* -----------------------
     OVERALL STYLES
 ----------------------- */
+a {
+  color: white;
+  text-decoration: none;
+}
 #bkgd-img {
   position: fixed; 
   top: 0; 
@@ -19,14 +23,24 @@ body {
   background-color: black;
   max-width: 100%;
   margin: 0;
+  padding-bottom: 15px;
 }
 .fa {
   color: white;
   text-decoration: none;
 }
 h1 {
-  font-family: 'Montserrat Subrayada', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 60px;
+}
+.previous {
+  text-decoration: none;
+  :hover {
+    color: white;
+  }
+}
+.row {
+  background-color: transparent;
 }
 select#min_tempo {
   border-radius: 20px;
@@ -41,11 +55,11 @@ select#min_tempo {
   margin: 0 auto;
   margin-bottom: 20px;
   td {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 300;
   }
   th {
-    font-size: 30px;
+    font-size: 25px;
     color: #F0AD4E;
   }
 }
@@ -60,84 +74,63 @@ select#min_tempo {
 .btn {
   border-radius: 30px;
   font-size: 20px;
-  a {
-  color: white;
-  }
-}
-.btn-info {
   border: none;
-}
-.btn-info a {
+  a {
   color: white;
   text-decoration: none;
-}
-#search_btn {
-  margin: 0 auto;
-
-}
-#profile_btns {
-  a {
-  color: white;
   }
 }
 /* -------------------------
         HOME PAGE
  ------------------------- */
 .home-pg{
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 16px;
-  height: 100%;
-  background: transparent;
-  h1 {
-    font-size: 75px;
-  }
   p {
     font-size: 40px;
   }
   .btn {
     font-size: 25px;
+    width: 30%;
   }
 }
-#bg-home {
-  position: fixed; 
-  top: 0; 
-  left: 0;  
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
+.main-logo {
+  width: 50%;
+  height: auto;
+  margin-top: 40px;
 }
 /* -------------------------
        SIGNIN/UP PAGES
  ------------------------- */
-.user-form {
-  width: 40%;
+form {
   margin: 0 auto;
-  p a {
-    color: white;
-  }
+  width: 40%;
 }
-#signin {
-  width: 50%;
-}
-
-#signup {
-  width: 50%;
-}
-.sign_note {
+/* -------------------------
+        PROFILE PAGE
+ ------------------------- */
+.profile-btn {
+  background-color: #F0AD4E;
+  border-radius: 30px;  
   color: white;
-}
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 15px;
+  margin-bottom: 15px;
+  width: 15%;
+ }
 /* -------------------------
         PLAYLIST PAGE
  ------------------------- */
-#playlist_name {
+input#playlist_name {
   margin-top: 20px;
   margin-bottom: 30px;
-  font-size: 36px;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
 }
 #view {
   margin-top: 50px;
+}
+#show-playlist-btns {
+  margin-bottom: 15px;
 }
 /* -------------------------
         NAV
@@ -147,30 +140,36 @@ select#min_tempo {
   font-size: 18px;
   background-color: black; 
   border-color: black;
+  min-width: 100%;
+  height: auto;
 }
 .navbar-brand {
+  width: 150px;
+  height: auto;
+  padding: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
   a {
-    color: #E5DFC5;
     text-decoration: none;
-    font-size: 28px;
-    font-family: 'Montserrat Subrayada', sans-serif;
+  }
+}
+.navbar-text {
+  :hover {
+    color: darkgrey;
   }
 }
 /* -------------------------
         SEARCH PAGE 
  ------------------------- */
 #min_tempo {
-  border-radius: 0px;
   height: 36px;
   border-color: white;
 }
 #max_tempo {
-  border-radius: 0px;
   height: 36px;
   border-color: white;
 }
 #style {
-  border-radius: 0px;
   height: 36px;
   border-color: white;
 }
@@ -181,14 +180,20 @@ select#min_tempo {
   border-color: darkslategrey;
   background-color: darkslategrey;
 }
-#search-table {
-  margin-top: 90px;
-}
 .table {
   .btn-warning a {
     text-decoration: none;
     color: white;
   }
+}
+.search-btn {
+  width: 60%;
+  height: auto;
+  margin: 15px;
+}
+select {
+  margin: 5px;
+  font-size: 20px;
 }
 /* ----------------------
         ABOUT PAGE 
@@ -199,11 +204,81 @@ select#min_tempo {
   /* all other browsers */
   background: rgba(54, 54, 54, 0.5);
   color: #E5DFC5;
+  width: 70%;
+  margin: 0 auto;
+
   h1 {
     color: white;
   }
   h2 {
+    font-family: 'Raleway', sans-serif;
     font-weight: 700;
     color: white;
+  }
+}
+#workout {
+  background-color: #A0D468;
+  border-radius: 50%;
+}
+.workout-txt {
+  width: 60%;
+  margin: 0 auto;
+}
+/* ----------------------
+        ICONS 
+ ------------------------- */
+ .fa-eye {
+  color: #A0D468;
+  font-size: 40px;
+ }
+  .fa-trash-o {
+  color: #DA4453;
+  font-size: 40px;
+ }
+/* ----------------------
+        MEDIA QUERIES 
+ ------------------------- */
+@media only screen 
+and (max-width : 700px) {
+  .col-sm-12 {
+    padding: 0px;
+  }
+  .profile-btn {
+    font-size: 25px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  .home-pg{
+    p {
+      font-size: 30px;
+    }
+    .btn {
+      font-size: 25px;
+      width: 40%;
+    }
+  }
+  form {
+    margin: 0 auto;
+    width: 70%;
+  }
+  .table {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    td {
+      font-size: 20px;
+      max-width: 250px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    th {
+      font-size: 20px;
+    }
+  }
+  .btn-lg {
+    font-size: 15px;
   }
 }

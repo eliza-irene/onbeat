@@ -3,5 +3,5 @@
   <%= f.hidden_field :name,      value: song["title"] %>
   <%= f.hidden_field :artist,    value: song["artist_name"] %>
   <%= f.hidden_field :bpm,       value: song["audio_summary"]["tempo"].to_i %> 
-  <td><%= f.submit "Add", class:"btn btn-danger" %></td>  
+  <td><%= f.submit "Add", class:"btn btn-success" %></td>  
 <% end %>

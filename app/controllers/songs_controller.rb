@@ -14,7 +14,7 @@ class SongsController < ApplicationController
     @playlists = current_user.playlists.find(song_params[:playlist_id])
     @song = @playlists.songs.build(song_params)   
     if @song.save
-      redirect_to songs_path, notice: "Nice! You added a song to your playlist!"
+      redirect_to songs_path, notice: "You added a song to your playlist!"
     else
       render 'new'
     end

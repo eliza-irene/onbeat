@@ -1,0 +1,7 @@
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <%= f.text_field :email, class: "form-control input-lg", autofocus: true, placeholder: "Email" %> 
+  <br />
+  <%= f.password_field :password, class: "form-control input-lg", placeholder: "Password" %>
+  <br/>
+  <%= f.submit 'Ready to Rock!', class: "btn btn-large btn-warning btn-block" %>
+<% end %>

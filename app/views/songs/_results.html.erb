@@ -1,5 +1,5 @@
 <% unless @results.nil? %>
-  <table class="table table-hover table-responsive" id="search-table">
+  <table class="table table-hover hidden-xs" id="search-table">
     <tr>
       <th class="text-center">Song</th>
       <th class="text-center">Artist</th>
@@ -9,4 +9,22 @@
     </tr>
       <%= render 'search_results' %>
   </table>
+<% end %>
+
+<% unless @results.nil? %>
+<div class="visible-xs">
+  <p class="lead text-center" style="color:">Scroll over to see the full results <i class="fa fa-arrow-right"></i></p>
+  <div class="table-responsive">
+    <table class="table table-hover" id="search-table">
+      <tr>
+        <th class="text-center">Song</th>
+        <th class="text-center">Artist</th>
+        <th class="text-center">BPM</th>
+        <th></th>
+        <th class="text-center">Add to Playlist?</th>
+      </tr>
+        <%= render 'search_results' %>
+    </table>
+  </div>
+</div>
 <% end %>

@@ -1,15 +1,23 @@
 <% provide(:title, @user.name) %>
-
-<div class="text-center">
-  <section>
-    <h1><%= @user.name %></h1>
-    <p class="lead"><%= @user.email %></p>
-  </section>
-
-  <div id="profile_btns">
-    <div class="btn btn-lg btn-warning"><a href="/playlists/new">New Playlist</a></div>
-    <div class="btn btn-lg btn-warning"><a href="/playlists">My Playlists</a></div>
-    <div class="btn btn-lg btn-warning"><a href="/songs">New Song Search</a></div>
-    <div class="btn btn-lg btn-warning"><a href="/about">About BPM</a></div>
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <h1>Welcome <%= @user.name %>!</h1>
+    <p class="lead">Registered email: <%= @user.email %></p>
   </div>
 </div>
+
+
+<div class="col-sm-12 text-center">
+  <div class="profile-btn" href="/playlists/new"><i class="fa fa-music"> New Playlist</i></div>
+</div>
+<div class="col-sm-12 text-center">
+  <div class="profile-btn" href="/playlists"><i class="fa fa-star"> My Playlists</i></div>
+</div>
+<div class="col-sm-12 text-center">
+  <div class="profile-btn" href="/songs"><i class="fa fa-search"> New Song Search</i></div>
+</div>
+<div class="col-sm-12 text-center">
+  <div class="profile-btn" href="/about"><i class="fa fa-question"> About BPM</i></div>
+</div>
+
+

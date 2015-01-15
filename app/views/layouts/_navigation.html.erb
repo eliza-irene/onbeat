@@ -8,11 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <% if signed_in? %>
-        <ul class="navbar-brand"><%= link_to "on.BEAT", user_path(current_user.id) %></ul>
-      <% else %>
-        <ul class="navbar-brand"><%= link_to "on.BEAT", home_path %></ul>
-      <% end %>
+      <ul class="navbar-brand"><%=render 'layouts/navbar_brand'%></ul>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -23,10 +19,12 @@
           <li><%= link_to "About", about_path %></li>
         </ul> 
         <ul class="nav navbar-nav navbar-right">
-          <p class="navbar-text"><%= current_user.email %></p>
+          <p class="navbar-text"><%= link_to current_user.email, playlists_path %></p>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-            <ul class="dropdown-menu">z
+            <ul class="dropdown-menu">
+              <li><%= link_to "My Playlists", playlists_path %></li>
+              <li><%= link_to "Profile", user_path(current_user.id)%></li>
               <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
             </ul>
           </li>

@@ -17,13 +17,13 @@
         <td><%= song.artist %></td>
         <td><%= song.bpm %></td>
         <td class="text-center"><%= link_to 'Delete', song_path(song),
-                                method: :delete, data: { confirm: 'Whoa. Are you sure?' }, class:"btn btn-default" %></td> 
+                                method: :delete, data: { confirm: 'Whoa. Are you sure?' }, class:"btn btn-danger btn-lg" %></td> 
       </tr>
     <% end%>
   </table>
-  <div class="text-center">
-    <a class="btn btn-lg btn-warning" id="search_btn" href="/playlists"><i class="fa fa-arrow-left"> Back to Playlists</i></a>
-    <a class="btn btn-lg btn-warning" id="search_btn" href="/songs"><i class="fa fa-search"> Search for Songs</i></a>
+  <div class="text-center" id="show-playlist-btns">
+    <a class="btn btn-lg btn-warning" href="/playlists"><i class="fa fa-arrow-left"> Back to Playlists</i></a>
+    <a class="btn btn-lg btn-warning" href="/songs"><i class="fa fa-search"> Search for Songs</i></a>
   </div>
 </div>
 
