@@ -8,7 +8,6 @@ on.BEAT is being developed for a project for the September 2014 Web Development 
 
 Links
 ---
-* Try on.BEAT for yourself and revolutionize your workout music experience!  You can find it here on [Heroku](https://onbeat.herokuapp.com/)
 * on.BEAT [Trello](https://trello.com/b/rynlNxeb/wdi-project-1) Board
 * on.BEAT [GitHub](https://github.com/eliza-irene/onbeat) page
 
